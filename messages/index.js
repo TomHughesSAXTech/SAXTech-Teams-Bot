@@ -19,7 +19,15 @@ const WEBHOOKS = {
 // Store conversation states in memory (use Azure Storage in production)
 const conversationStates = new Map();
 
+// Error handling for adapter
+adapter.onTurnError = async (context, error) => {
+    console.error('Bot error:', error);
+    await context.sendActivity('Sorry, something went wrong!');
+};
+
 module.exports = async function (context, req) {
+    context.log('Received request:', req.method, req.url);
+    
     // Handle Bot Framework messages
     await adapter.processActivity(req, context.res, async (turnContext) => {
         if (turnContext.activity.type === 'message') {
