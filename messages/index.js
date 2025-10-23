@@ -26,7 +26,12 @@ adapter.onTurnError = async (context, error) => {
 };
 
 module.exports = async function (context, req) {
-    context.log('Received request:', req.method, req.url);
+    context.log('=== MESSAGES ENDPOINT CALLED ===');
+    context.log('Method:', req.method);
+    context.log('URL:', req.url);
+    context.log('Headers:', JSON.stringify(req.headers));
+    context.log('Body type:', req.body ? typeof req.body : 'undefined');
+    context.log('Body:', JSON.stringify(req.body));
     
     // Handle Bot Framework messages
     await adapter.processActivity(req, context.res, async (turnContext) => {
