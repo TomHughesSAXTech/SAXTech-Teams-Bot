@@ -1,0 +1,13 @@
+{
+  "name": "saxtech-teams-megamind-bot",
+  "version": "1.0.0",
+  "description": "SAXTech MegaMind Teams Bot - Forwards messages to n8n workflows",
+  "main": "index.js",
+  "dependencies": {
+    "botbuilder": "^4.20.0",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
